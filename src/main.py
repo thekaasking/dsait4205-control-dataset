@@ -117,8 +117,9 @@ def plot_dataset_distribution(dataset_type, n_per_class, X, y, y_train, y_cal, y
     ax2.legend([f"Total: {sum(split_counts)}"], loc="upper right")
 
     plt.tight_layout()
-    plt.savefig("assets/dataset_statistics.png")
-    print("Dataset statistics plot saved to assets/dataset_statistics.png")
+    output_path = f"assets/dataset_statistics_{sum(split_counts)}.png"
+    plt.savefig(output_path, dpi=100)
+    print(f"Dataset statistics plot saved to {output_path=}")
 
     # Sample images for each class
     if dataset_type == DatasetTypes.IMAGES:
@@ -129,8 +130,9 @@ def plot_dataset_distribution(dataset_type, n_per_class, X, y, y_train, y_cal, y
             axes[i].set_title(class_names[i])
             axes[i].axis("off")
         plt.tight_layout()
-        plt.savefig("assets/sample_images.png", dpi=100)
-        print("Sample images saved to assets/sample_images.png")
+        output_path = f"assets/sample_images_{sum(split_counts)}.png"
+        plt.savefig(output_path, dpi=100)
+        print(f"Sample images saved to {output_path=}")
 
 
 @timer
@@ -217,7 +219,7 @@ if __name__ == "__main__":
 
     generate_dataset(
         dataset_type=DatasetTypes.IMAGES,
-        n_total=10000,
+        n_total=200,
         priors=np.array([0.80, 0.15, 0.05]),
         image_size=28,
         edge_bounding_box=12,
