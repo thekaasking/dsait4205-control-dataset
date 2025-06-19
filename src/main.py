@@ -103,7 +103,7 @@ def plot_dataset_distribution(dataset_type, n_per_class, X, y, y_train, y_cal, y
     ax1.set_title("Class Distribution in Dataset")
     for i, count in enumerate(counts):
         ax1.text(i, count + 2, str(count), ha="center")
-    # Add legend showing total samples
+
     ax1.legend([f"Total: {sum(counts)}"], loc="upper right")
 
     splits = ["Train", "Calibration", "Test"]
@@ -113,7 +113,7 @@ def plot_dataset_distribution(dataset_type, n_per_class, X, y, y_train, y_cal, y
     ax2.set_title("Dataset Split Distribution")
     for i, count in enumerate(split_counts):
         ax2.text(i, count + 2, str(count), ha="center")
-    # Add legend showing total samples
+
     ax2.legend([f"Total: {sum(split_counts)}"], loc="upper right")
 
     plt.tight_layout()
@@ -121,7 +121,6 @@ def plot_dataset_distribution(dataset_type, n_per_class, X, y, y_train, y_cal, y
     plt.savefig(output_path, dpi=100)
     print(f"Dataset statistics plot saved to {output_path=}")
 
-    # Sample images for each class
     if dataset_type == DatasetTypes.IMAGES:
         _, axes = plt.subplots(1, 3, figsize=(12, 4))
         for i in range(3):

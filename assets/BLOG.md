@@ -1,15 +1,8 @@
-# DSAIT-4205 Control Dataset
-
-Razo van Berkel, June 2025
-DSAIT 4205, TU Delft, Fundamental Research in Machine and Deep Learning
-
-![Dataset Sample Images](assets/sample_images.png)
-
-> **Assignment 2:** create a precise control-dataset to evaluate a single hypotheses of a ML/DL paper.
-
-## Control Dataset Blog
+# Control Dataset Blog
 
 The following is the blogpost for the control dataset.
+
+![Dataset Sample Images](sample_images.png)
 
 ## Introduction
 
@@ -46,34 +39,3 @@ The evaluation involves two models: a baseline trained with cross-entropy follow
 ### Conclusion
 
 This toy dataset might look trivial, but it could act as a magnifying glass: any unfairness introduced by the model stands out because the data themselves are impartial. With this control set in place we can now run ConfTr and a standard cross-entropy baseline, calibrate both with split CP, and compare per-class inefficiency at identical 95% coverage. If ConfTr truly levels the playing field, the disparity metric \(σ(|S|)\) should fall; if it doesn’t, the claim weakens under the simplest possible conditions. Either way, the experiment yields an unambiguous answer while requiring only seconds to generate and a few megabytes—not gigabytes—of storage, making it easy for anyone to reproduce or extend the study.
-
-## Code & Replication
-
-The script to generate this data was written in Python. We use `uv` as the package manager in this setup. If you haven't installed `uv` yet, please refer to their official documentation on <https://docs.astral.sh/uv/getting-started/installation/>.
-
-### Installating and running the code
-
-To replicate the control dataset, run the following commands in your terminal (PowerShell or Bash):
-
-```bash
-uv venv
-uv sync
-uv run src/main.py
-```
-
-This will create a virtual environment, install the required dependencies, and run the main script to generate the control dataset.
-
-### Adjustable parameters
-
-The following parameters may be adjusted in the `src/main.py` script to modify the control dataset structure (defaults added):
-
-```python
-image_size: int = 28 # Size of the generated images (28x28 pixels)
-edge_bounding_box: int = 12 # Size of the bounding box around the blobs
-n_total: int = 200 # Total number of samples
-priors: np.ndarray = np.array([0.80, 0.15, 0.05])
-```
-
-## Acknowledgements
-
-Generative AI (ChatGPT o3) was used as a sparring partner for defining the hypothesis to test.
