@@ -17,7 +17,7 @@ Re-creating someone else’s experiment only pays off if we can be sure the data
 
 ### Paper on-test: Learning Optimal Conformal Classifiers
 
-> Paper link: <https://github.com/google-deepmind/conformal_training/>
+> Paper link: [OpenReview.net PDF Link](https://openreview.net/pdf?id=t8O-4LKFVx)
 
 Conformal Training is best described by the authors themselves, in the [README of their GitHub repository](https://github.com/google-deepmind/conformal_training/blob/main/README.md):
 _*Conformal training* allows training models explicitly for split conformal prediction (CP). Usually, split CP is used as a separate calibration step - a wrapper - after training with the goal to predict _confidence sets_ of classes instead of making point predictions. The goal of CP is to associate these confidence sets with a so-called coverage guarantee, stating that the true class is included with high probability. However, applying CP _after_ training prevents the underlying model from adapting to the prediction of confidence sets. Conformal training explicitly differentiates through the conformal predictor during training with the goal of training the model with the conformal predictor end-to-end. Specifically, it "simulates" conformalization on mini-batches during training. Compared to standard training, conformal training reduces the average confidence set size (inefficiency) of conformal predictors applied after training. Moreover, it can "shape" the confidence sets predicted at test time, which is difficult for standard CP. We refer to the paper for more background on conformal prediction and a detailed description of conformal training._

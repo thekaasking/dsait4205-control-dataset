@@ -1,6 +1,9 @@
-# Control Dataset Blog
+# Conformal Training on an Imbalanced Shape Dataset: Testing Inefficiency Disparity
 
-The following is the blogpost for the control dataset. The source code can be found on [GitHub](https://github.com/thekaasking/dsait4205-control-dataset).
+_Razo van Berkel, June 2025.
+DSAIT 4205, TU Delft, Fundamental Research in Machine and Deep Learning._
+
+The following is the blogpost for the control dataset as created to test a single Hypothesis on the "Learning Optimal Conformal Classifiers" paper. The source code can be found on [GitHub](https://github.com/thekaasking/dsait4205-control-dataset), and instructions to replicate the dataset are provided in the "Code & Replication" section in the [README of the repository](https://github.com/thekaasking/dsait4205-control-dataset/blob/main/README.md).
 
 ![Dataset Sample Images](sample_images.png)
 
@@ -10,7 +13,7 @@ Re-creating someone else’s experiment only pays off if we can be sure the data
 
 ### Paper on-test: Learning Optimal Conformal Classifiers
 
-> Paper link: <https://github.com/google-deepmind/conformal_training/>
+> Paper link: [OpenReview.net PDF Link](https://openreview.net/pdf?id=t8O-4LKFVx)
 
 Conformal Training is best described by the authors themselves, in the [README of their GitHub repository](https://github.com/google-deepmind/conformal_training/blob/main/README.md):
 _*Conformal training* allows training models explicitly for split conformal prediction (CP). Usually, split CP is used as a separate calibration step - a wrapper - after training with the goal to predict _confidence sets_ of classes instead of making point predictions. The goal of CP is to associate these confidence sets with a so-called coverage guarantee, stating that the true class is included with high probability. However, applying CP _after_ training prevents the underlying model from adapting to the prediction of confidence sets. Conformal training explicitly differentiates through the conformal predictor during training with the goal of training the model with the conformal predictor end-to-end. Specifically, it "simulates" conformalization on mini-batches during training. Compared to standard training, conformal training reduces the average confidence set size (inefficiency) of conformal predictors applied after training. Moreover, it can "shape" the confidence sets predicted at test time, which is difficult for standard CP. We refer to the paper for more background on conformal prediction and a detailed description of conformal training._
@@ -20,8 +23,7 @@ _*Conformal training* allows training models explicitly for split conformal pred
 We design a dataset to test the following hypothesis:
 > _"ConfTr reduces the disparity in inefficiency between majority and minority classes."_
 
-A bit more complete and descriptive statement of the hypothesis:
-> _Given strong class-imbalance, Conformal Training (ConfTr) produces confidence sets whose **inefficiency disparity** across classes is smaller than that of a baseline model trained with standard cross-entropy and calibrated with split conformal prediction._
+A bit more complete and descriptive statement of the hypothesis: _Given strong class-imbalance, Conformal Training (ConfTr) produces confidence sets whose **inefficiency disparity** across classes is smaller than that of a baseline model trained with standard cross-entropy and calibrated with split conformal prediction._
 
 ### Why this matters  
 
