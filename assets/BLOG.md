@@ -1,6 +1,6 @@
 # Control Dataset Blog
 
-The following is the blogpost for the control dataset.
+The following is the blogpost for the control dataset. The source code can be found on [GitHub](https://github.com/thekaasking/dsait4205-control-dataset).
 
 ![Dataset Sample Images](sample_images.png)
 
